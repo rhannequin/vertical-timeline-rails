@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'vertical/timeline/rails/version'
+require 'vertical-timeline-rails/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "vertical-timeline-rails"
@@ -23,8 +23,7 @@ Gem::Specification.new do |spec|
   end
 
   spec.files         = Dir["{lib,vendor}/**/*"] + ["LICENSE.txt", "README.md"]
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.executables   = spec.files.grep(%r{^bin/}).map { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.9"

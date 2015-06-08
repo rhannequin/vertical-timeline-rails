@@ -1,4 +1,4 @@
-require "vertical/timeline/rails/version"
+require "vertical-timeline-rails/version"
 
 module Vertical
   module Timeline
