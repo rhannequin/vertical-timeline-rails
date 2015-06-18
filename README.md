@@ -1,38 +1,77 @@
-# Vertical::Timeline::Rails
+# vertical_timeline_rails
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/vertical/timeline/rails`. To experiment with that code, run `bin/console` for an interactive prompt.
+The `vertical_timeline_rails` integrates the [Vertical Timeline](http://codyhouse.co/gem/vertical-timeline) library with the [Rails assets pipeline](http://guides.rubyonrails.org/asset_pipeline.html).
 
-TODO: Delete this and the text above, and describe your gem
+This gem is compatible with Rails 3.1.1 and higher (including Rails 4).
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add `vertical_timeline_rails` to your `Gemfile`:
 
 ```ruby
-gem 'vertical-timeline-rails'
+# Gemfile
+
+gem 'vertical_timeline_rails'
 ```
 
-And then execute:
+Then run `$ bundle install`.
 
-    $ bundle
+You can also install it yourself as:
 
-Or install it yourself as:
+```
+$ gem install vertical-timeline-rails
+```
 
-    $ gem install vertical-timeline-rails
+## Configuration
+
+You need to add JavaScript and stylesheet from Vertical Timeline this way:
+
+```css
+/* app/assets/stylesheets/application.css */
+
+/*
+ * ...
+ *= require vertical-timeline
+ * ...
+ */
+```
+
+```js
+// app/assets/javascripts/application.js
+
+// ...
+//= require vertical-timeline
+// ...
+```
+
+Vertical Timeline provides a few SVG files from [Nucleo Library](https://nucleoapp.com). If you want to use them, don't forget to add SVG files to your precompile configuration :
+
+```ruby
+# config/initializers/assets.rb
+
+# ...
+Rails.application.config.assets.precompile += %w( *.svg )
+# ...
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+You must provide a title (`String`), a date (`Date`), an image (`String`) and a block.
 
-## Development
+```erb
+<%= timeline_container('Awesome title', Date.today, 'cd-icon-picture.svg') do %>
+  <p>Lorem ipsum dolor sit amet.</p>
+  <%= link_to 'See item', '#', class: 'cd-read-more' %>
+<% end %>
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
+## Changelog
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+**[0.1.0]** 2015-06-19: First version and readme for instructions.
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/vertical-timeline-rails/fork )
+1. Fork it ( https://github.com/rhannequin/vertical-timeline-rails/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
