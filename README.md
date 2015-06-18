@@ -65,6 +65,12 @@ You must provide a title (`String`), a date (`Date`), an image (`String`) and a 
 <% end %>
 ```
 
+## Specs
+
+`@TODO`
+
+*Yes, I will write tests.*
+
 ## Changelog
 
 **[0.1.0]** 2015-06-19: First version and readme for instructions.
