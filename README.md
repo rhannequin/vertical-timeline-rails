@@ -11,7 +11,7 @@ Add `vertical_timeline_rails` to your `Gemfile`:
 ```ruby
 # Gemfile
 
-gem 'vertical_timeline_rails'
+gem 'vertical-timeline-rails'
 ```
 
 Then run `$ bundle install`.
